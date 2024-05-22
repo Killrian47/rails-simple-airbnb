@@ -1,0 +1,20 @@
+<h1 class="text-center my-3"><%= @flat.name %></h1>
+
+<div class="container w-50">
+  <div class="row">
+    <div class="col-12 col-lg-6 mx-auto">
+      <p><%= @flat.description %></p>
+      <p><%= @flat.address %></p>
+      <div class="d-flex gap-3">
+        <p><i class="fa-solid fa-user"></i> <%= @flat.number_of_guests %></p>
+        <p><i class="fa-solid fa-euro-sign"></i> <%= @flat.price_per_night %></p>
+      </div>
+      <div>
+        <%= link_to "Back to the list of flats", flats_path %>
+      </div>
+      <div>
+        <%= link_to "Edit this flat", edit_flat_path(@flat) %>
+      </div>
+    </div>
+  </div>
+</div>

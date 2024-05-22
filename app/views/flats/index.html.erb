@@ -1,0 +1,26 @@
+<h1 class="text-center my-3">All our flats (<%= @flats.size %>)</h1>
+
+<div class="container mx-auto ">
+  <div class="row align-items-center flex-wrap">
+    <% @flats.each do |flat| %>
+      <div class="col-lg-3 mb-3">
+        <div class="card">
+          <img src="<%= flat.picture %>" alt="" class="card-top img" >
+          <div class="p-2">
+            <h5 class="card-title"><%= flat.name %></h5>
+            <p class="card-text">Description: <%= flat.description %></p>
+            <div class="d-flex gap-3">
+              <p><i class="fa-solid fa-user"></i> <%= flat.number_of_guests %></p>
+              <p class="card-text"><i class="fa-solid fa-euro-sign"></i> <%= flat.price_per_night %></p>
+            </div>
+            <div class="mb-3 d-flex gap-2">
+              <%= link_to "More info", flat_path(flat), class: "link-perso" %>
+              <%= link_to "Edit", edit_flat_path(flat), class: "link-perso text-warning" %>
+              <%= link_to "Delete", flat_path(flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "link-perso text-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
